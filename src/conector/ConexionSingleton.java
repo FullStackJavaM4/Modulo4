@@ -18,10 +18,15 @@ public class ConexionSingleton {
 		password = "1234";
 		
 		try {
+			System.out.println("Clase ConexionSingleton.java");
 			Class.forName(driver);
 			conn = DriverManager.getConnection(url, usuario, password);	
+			System.out.println("valor conn luego de conn = DriverManager.getConnection(url, usuario, password): " + conn);
 		}
 		catch(ClassNotFoundException | SQLException e) {
+			System.out.println("Clase ConexionSingleton");
+			System.out.println("no pudimos conectar con la base de datos en ConexionSingleton");
+			System.out.println("el evento e es: " + e);
 			e.printStackTrace();
 		}
 	}
@@ -30,6 +35,7 @@ public class ConexionSingleton {
 		if (conn == null) {
 			new ConexionSingleton();
 		}
+		System.out.println("valor que retornara conn de ConexionSingleton: " + conn);
 		return conn;
 	}
 	

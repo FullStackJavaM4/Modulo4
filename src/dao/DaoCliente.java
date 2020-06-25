@@ -21,18 +21,24 @@ public class DaoCliente implements IdaoCliente {
 		Statement stm = null;
 		Connection con = null;
 		
-		String sql = "INSERT INTO Cliente VALUES (null,'" + cliente.getNombreCliente() + "','" + cliente.getTelefonoCliente() 
-		+ "','" + cliente.getEmailCliente() + "','" + cliente.getRubroCliente() + "','"+ cliente.getDireccionCliente() + "')";
+		//String sql = "INSERT INTO Cliente VALUES (null,'" + cliente.getNombreCliente() + "','" + cliente.getTelefonoCliente() 
+		//+ "','" + cliente.getEmailCliente() + "','" + cliente.getRubroCliente() + "','"+ cliente.getDireccionCliente() + "')";
 		
+		String sql = "INSERT INTO Clientes VALUES (null,'" + cliente.getNombreCliente() + "','" + cliente.getTelefonoCliente() 
+		+ "','" + cliente.getEmailCliente() + "','" + cliente.getRubroCliente() + "','"+ cliente.getDireccionCliente() + "')";
+		System.out.println("Valor sql: " + sql);
 		try {
 			con = ConexionSingleton.getConnection();
+			System.out.println("Valor con despues de con = ConexionSingleton.getConnection() " + con);
 			stm = con.createStatement();
 			stm.execute(sql);
 			agregar = true;
 			stm.close();
+			System.out.println("Si me lees es porque se agrego el nuevo cliente con EXITO");
 			//con.close();
 		}catch(SQLException e) {
-			System.out.println("Error: Clase ClienteDao, método agregar");
+			System.out.println("Error en DaoClientes.agregar()");
+			System.out.println("Valor del evento e: " + e);
 			e.printStackTrace();
 		}
 		
