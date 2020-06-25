@@ -21,6 +21,7 @@
 	Dirección: <input type="text" name="direccion" /><br/>
 	<input type="submit" value="Agregar cliente" />
 </form>
+<a href="ListarClientes">Volver</a>
 
 </body>
 </html>

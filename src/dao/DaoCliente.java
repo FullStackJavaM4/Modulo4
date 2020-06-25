@@ -47,8 +47,43 @@ public class DaoCliente implements IdaoCliente {
 
 	@Override
 	public List<Clientes> listar() {
-		// TODO Auto-generated method stub
-		return null;
+		Connection con = null;
+		Statement stm = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from Clientes ORDER BY idcliente";
+		//String sql = "select * from Clientes ORDER BY ID";
+		
+		List<Clientes> listaClientes = new ArrayList<Clientes>();
+		
+		try {
+			con = ConexionSingleton.getConnection();
+			System.out.println("DaoClientes.listar()");
+			System.out.println("valor de con luego de asignarle ConexionSingleton.getConnection(): " + con);
+			System.out.println("valor sql: " + sql);
+			stm = con.createStatement();
+			rs = stm.executeQuery(sql);
+			while(rs.next()) {
+				Clientes c = new Clientes();
+				c.setIdCliente(rs.getInt(1));
+				c.setNombreCliente(rs.getString(2));
+				c.setTelefonoCliente(rs.getInt(3));
+				c.setEmailCliente(rs.getString(4));
+				c.setRubroCliente(rs.getString(5));
+				c.setDireccionCliente(rs.getString(6));
+				listaClientes.add(c);
+				System.out.println("entre");
+			}
+			stm.close();
+			rs.close();
+			
+		} catch(SQLException e) {
+			System.out.println("Error: clase DaoClientes, metodo listar");
+			System.out.println("valor de e: " + e);
+			e.printStackTrace();
+		}
+		
+		return listaClientes;
 	}
 
 	@Override
