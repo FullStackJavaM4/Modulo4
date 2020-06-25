@@ -9,14 +9,17 @@ public class Clientes {
 	private String direccionCliente;
 	
 	
-	public Clientes(int idCliente, String nombreCliente, int telefonoCliente, String emailCliente, String rubroCliente,
+	public Clientes(String nombreCliente, int telefonoCliente, String emailCliente, String rubroCliente,
 			String direccionCliente) {
-		this.idCliente = idCliente;
 		this.nombreCliente = nombreCliente;
 		this.telefonoCliente = telefonoCliente;
 		this.emailCliente = emailCliente;
 		this.rubroCliente = rubroCliente;
 		this.direccionCliente = direccionCliente;
+	}
+	
+	public Clientes() {
+		
 	}
 
 
