@@ -88,8 +88,30 @@ public class DaoCliente implements IdaoCliente {
 
 	@Override
 	public boolean eliminar(Clientes cliente) {
-		// TODO Auto-generated method stub
-		return false;
+		Connection con = null;
+		Statement stm = null;
+		boolean eliminar = false;
+		
+		String sql = "delete from clientes where idcliente = " + cliente.getIdCliente();
+		
+		try {
+			System.out.println("DaoClientes.eliminar()");
+			con = ConexionSingleton.getConnection();
+			System.out.println("valor de con luego de asignarle ConexionSingleton.getConnection(): " + con);
+			System.out.println("valor sql: " + sql);
+			stm = con.createStatement();
+			stm.execute(sql);
+			eliminar = true;
+			stm.close();
+			
+		} catch(SQLException e) {
+			System.out.println("Error: clase DaoClientes, metodo listar");
+			System.out.println("valor de e: " + e);
+			e.printStackTrace();
+		}
+		
+		System.out.println("valor de retorno DaoClientes.eliminar(): " + eliminar);
+		return eliminar;
 	}
 
 	@Override

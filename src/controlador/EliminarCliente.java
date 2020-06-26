@@ -11,20 +11,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.DaoCliente;
-
 import modelo.Clientes;
 
 /**
- * Servlet implementation class ListarClientes
+ * Servlet implementation class EliminarCliente
  */
-@WebServlet("/ListarClientes")
-public class ListarClientes extends HttpServlet {
+@WebServlet("/EliminarCliente")
+public class EliminarCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListarClientes() {
+    public EliminarCliente() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,18 +34,33 @@ public class ListarClientes extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		//String texto = "";
+		int clienteid = Integer.parseInt(request.getParameter("id"));
+		
+		Clientes cli = new Clientes();
+		cli.setIdCliente(clienteid);
+		
+		DaoCliente clidao = new DaoCliente();
+		boolean eliminado = false;
+		
+		eliminado = clidao.eliminar(cli);
+		
+		String texto = "";
+		
+		if(eliminado) {
+			texto = "El cliente ha sido eliminado correctamente.";
+		} else {
+			texto = "No fue posible cursar la solicitud";
+		}
 		
 		DaoCliente cliDao = new DaoCliente();
 		List<Clientes> listacli = new ArrayList<Clientes>();
 		
 		listacli = cliDao.listar(); 
 		
-		//texto = "Aqui debo listar los clientes";
-		
-		//request.setAttribute("txt", texto);
 		request.setAttribute("listaclientes", listacli);
-		request.getRequestDispatcher("listarclientes.jsp").forward(request, response);
+		request.setAttribute("txt", texto);
+		request.getRequestDispatcher("ListarClientes").forward(request, response);
+		
 	}
 
 	/**
@@ -54,7 +68,7 @@ public class ListarClientes extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
 	}
 
 }
