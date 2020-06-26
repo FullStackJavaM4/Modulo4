@@ -20,10 +20,7 @@ public class DaoCliente implements IdaoCliente {
 		
 		Statement stm = null;
 		Connection con = null;
-		
-		//String sql = "INSERT INTO Cliente VALUES (null,'" + cliente.getNombreCliente() + "','" + cliente.getTelefonoCliente() 
-		//+ "','" + cliente.getEmailCliente() + "','" + cliente.getRubroCliente() + "','"+ cliente.getDireccionCliente() + "')";
-		
+				
 		String sql = "INSERT INTO Clientes VALUES (null,'" + cliente.getNombreCliente() + "','" + cliente.getTelefonoCliente() 
 		+ "','" + cliente.getEmailCliente() + "','" + cliente.getRubroCliente() + "','"+ cliente.getDireccionCliente() + "')";
 		System.out.println("Valor sql: " + sql);
@@ -116,14 +113,76 @@ public class DaoCliente implements IdaoCliente {
 
 	@Override
 	public boolean actualizar(Clientes cliente) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean actualizar = false;
+		
+		Connection con = null;
+		Statement stm = null;
+		//update clietes set nombreCliente = perro, telefonocliente = 12121212, emailcliente = perro@gmail.com, 
+		//rubrocliente = ser humano, direccioncliente = Quinterowhere idcliente = 9
+		
+		String sql = "update clientes set nombreCliente = '" + cliente.getNombreCliente() 
+									+ "', telefonocliente = '" + cliente.getTelefonoCliente() 
+									+ "', emailcliente = '" + cliente.getEmailCliente() 
+									+ "', rubrocliente = '" + cliente.getRubroCliente()
+									+ "', direccioncliente = '" + cliente.getDireccionCliente()
+									+ "' where idcliente = '" + cliente.getIdCliente() + "'";
+		try {
+			System.out.println("DaoClientes.actualizar()");
+			con = ConexionSingleton.getConnection();
+			System.out.println("valor de con luego de asignarle ConexionSingleton.getConnection(): " + con);
+			System.out.println("valor sql: " + sql);
+			stm = con.createStatement();
+			stm.execute(sql);
+			actualizar = true;
+			stm.close();
+			
+		} catch(SQLException e) {
+			System.out.println("Error: clase DaoClientes, metodo actualizar");
+			System.out.println("valor de e: " + e);
+			e.printStackTrace();
+		}
+		
+		System.out.println("valor de retorno DaoClientes.actualizar(): " + actualizar);
+		return actualizar;
 	}
 
+	
 	@Override
 	public Clientes buscar(int clienteid) {
-		// TODO Auto-generated method stub
-		return null;
+		Connection con = null;
+		Statement stm = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from clientes where idcliente = " + clienteid;
+		
+		Clientes cli = new Clientes();
+		
+		try {
+			con = ConexionSingleton.getConnection();
+			System.out.println("DaoClientes.listar()");
+			System.out.println("valor de con luego de asignarle ConexionSingleton.getConnection(): " + con);
+			System.out.println("valor sql: " + sql);
+			stm = con.createStatement();
+			rs = stm.executeQuery(sql);
+			while(rs.next()) {
+				cli.setIdCliente(rs.getInt(1));
+				cli.setNombreCliente(rs.getString(2));
+				cli.setTelefonoCliente(rs.getInt(3));
+				cli.setEmailCliente(rs.getString(4));
+				cli.setRubroCliente(rs.getString(5));
+				cli.setDireccionCliente(rs.getString(6));
+				System.out.println("entre");
+			}
+			stm.close();
+			rs.close();
+			
+		} catch(SQLException e) {
+			System.out.println("Error: clase DaoClientes.buscar(id)");
+			System.out.println("valor de e: " + e);
+			e.printStackTrace();
+		}
+		
+		return cli;
 	}
 	
 	
