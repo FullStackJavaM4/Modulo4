@@ -27,6 +27,8 @@
 				<td>${cli.getEmailCliente()}</td>
 				<td>${cli.getRubroCliente()}</td>
 				<td>${cli.getDireccionCliente()}</td>
+				<td><a href="${pageContext.request.contextPath}/EliminarCliente?id=${cli.getIdCliente()}">Eliminar</a></td>
+				<td><a href="${pageContext.request.contextPath}/ModificarCliente?id=${cli.getIdCliente()}">Modificar</a></td>
 			</tr>
 		</c:forEach>
 	</table>
