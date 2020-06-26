@@ -10,7 +10,7 @@
 	<h1>Menu Principal</h1>
 	<ul>
 		<li>
-			<a href="${pageContext.request.contextPath}/ListarClientes">Administrar Clientes</a>
+			<a href="ListarClientes">Administrar Clientes</a>
 		</li>
 		<li>
 			Administrar Empleados
