@@ -22,7 +22,9 @@
 			<a href="${pageContext.request.contextPath}/ListarEmpleados">Administrar Empleados</a>
 		</li>
 		
-		<li>CU4 Planificar visita</li>
+		<li>CU4 
+		<a href="${pageContext.request.contextPath}/PlanificarVisita">Planificar Visita</a>
+		</li>
 		<li>CU3 Crear capacitacion</li>
 		<li>CU7 Crear caso de asesoria</li>
 		<li>CU13 Ingresar Asesoria</li>
