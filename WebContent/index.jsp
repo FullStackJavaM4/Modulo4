@@ -24,6 +24,7 @@
 		<li>CU13 Ingresar Asesoria</li>
 		<li>CU19 Generar reporte cliente</li>
 		<li>CU20 Generar reporte global</li>
+		<li>Opciones por terminar</li>
 		<li></li>
 		<li></li>
 		
