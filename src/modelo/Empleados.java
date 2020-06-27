@@ -10,6 +10,15 @@ public class Empleados {
 		this.nombreEmpleado = nombreEmpleado;
 		this.especialidadEmpleado = especialidadEmpleado;
 	}
+	
+	public Empleados(String nombreEmpleado, String especialidadEmpleado) {
+		this.nombreEmpleado = nombreEmpleado;
+		this.especialidadEmpleado = especialidadEmpleado;
+	}
+	
+	public Empleados() {
+		
+	}
 
 	public int getIdEmpleado() {
 		return idEmpleado;

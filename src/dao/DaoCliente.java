@@ -159,7 +159,7 @@ public class DaoCliente implements IdaoCliente {
 		
 		try {
 			con = ConexionSingleton.getConnection();
-			System.out.println("DaoClientes.listar()");
+			System.out.println("DaoClientes.buscar()");
 			System.out.println("valor de con luego de asignarle ConexionSingleton.getConnection(): " + con);
 			System.out.println("valor sql: " + sql);
 			stm = con.createStatement();
