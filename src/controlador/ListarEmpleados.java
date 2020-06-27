@@ -10,21 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.DaoCliente;
-
-import modelo.Clientes;
+import dao.DaoEmpleado;
+import modelo.Empleados;
 
 /**
- * Servlet implementation class ListarClientes
+ * Servlet implementation class ListarEmpleados
  */
-@WebServlet("/ListarClientes")
-public class ListarClientes extends HttpServlet {
+@WebServlet("/ListarEmpleados")
+public class ListarEmpleados extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListarClientes() {
+    public ListarEmpleados() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,17 +34,14 @@ public class ListarClientes extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		//String texto = "";
 		
-		DaoCliente cliDao = new DaoCliente();
-		List<Clientes> listacli = new ArrayList<Clientes>();
+		DaoEmpleado empDao = new DaoEmpleado();
+		List<Empleados> listaemp = new ArrayList<Empleados>();
 		
-		listacli = cliDao.listar(); 
+		listaemp = empDao.listar();
 		
-		
-		//request.setAttribute("txt", texto);
-		request.setAttribute("listaclientes", listacli);
-		request.getRequestDispatcher("listarclientes.jsp").forward(request, response);
+		request.setAttribute("listaempleados", listaemp);
+		request.getRequestDispatcher("listarempleados.jsp").forward(request, response);
 	}
 
 	/**

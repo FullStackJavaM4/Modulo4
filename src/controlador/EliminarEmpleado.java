@@ -10,21 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.DaoCliente;
-
-import modelo.Clientes;
+import dao.DaoEmpleado;
+import modelo.Empleados;
 
 /**
- * Servlet implementation class ListarClientes
+ * Servlet implementation class EliminarEmpleado
  */
-@WebServlet("/ListarClientes")
-public class ListarClientes extends HttpServlet {
+@WebServlet("/EliminarEmpleado")
+public class EliminarEmpleado extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListarClientes() {
+    public EliminarEmpleado() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,17 +34,33 @@ public class ListarClientes extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		//String texto = "";
+		int empleadoid = Integer.parseInt(request.getParameter("id"));
 		
-		DaoCliente cliDao = new DaoCliente();
-		List<Clientes> listacli = new ArrayList<Clientes>();
+		Empleados emp = new Empleados();
+		emp.setIdEmpleado(empleadoid);
 		
-		listacli = cliDao.listar(); 
+		DaoEmpleado empdao = new DaoEmpleado();
+		boolean eliminado = false;
 		
+		eliminado = empdao.eliminar(emp);
 		
-		//request.setAttribute("txt", texto);
-		request.setAttribute("listaclientes", listacli);
-		request.getRequestDispatcher("listarclientes.jsp").forward(request, response);
+		String texto = "";
+		
+		if(eliminado) {
+			texto = "El empleado ha sido eliminado correctamente.";
+		} else {
+			texto = "No fue posible cursar la solicitud";
+		}
+		
+		DaoEmpleado empDao = new DaoEmpleado();
+		List<Empleados> listaemp = new ArrayList<Empleados>();
+		
+		listaemp = empDao.listar();
+		
+		request.setAttribute("listaempleados", listaemp);
+		request.setAttribute("txt", texto);
+		request.getRequestDispatcher("listarempleados.jsp").forward(request, response);
+		
 	}
 
 	/**
@@ -53,7 +68,7 @@ public class ListarClientes extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
 	}
 
 }
