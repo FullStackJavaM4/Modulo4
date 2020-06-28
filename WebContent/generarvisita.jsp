@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<a href="PlanificarVisita">Volver</a>
+<hr>
 <h1>Generar Visita Cliente ${cliente}</h1>
 <c:if test="${ccmensaje != null}">
 	<h3><c:out value="${ccmensaje}"></c:out></h3>
@@ -32,7 +34,6 @@
 	<input type="number" name="idcliente" value="${idcli}" readonly><br>
 	<input type="submit" value="Generar visita" />
 </form>
-<a href="PlanificarVisita">Volver</a>
 
 </body>
 </html>

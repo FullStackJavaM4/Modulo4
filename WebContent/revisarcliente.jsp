@@ -10,12 +10,13 @@
 <body>
 	<a href="index.jsp">Menu Principal</a>
 	<hr>
-	<h1>Administrar Clientes (Agregar/Modificar/Eliminar)</h1>	
+	<h1>Revisar Clientes </h1>	
 	<c:if test="${txt != null}">
 	<h3><c:out value="${txt}"></c:out></h3>
 </c:if>
 	<table>
 		<tr>
+			<th>ID Cliente</th>
 			<th>Nombre</th>
 			<th>Telefono</th>
 			<th>Email</th>
@@ -24,17 +25,15 @@
 		</tr>
 		<c:forEach items="${listaclientes}" var="cli">
 			<tr>
+				<td>${cli.getIdCliente()}</td>
 				<td>${cli.getNombreCliente()}</td>
 				<td>${cli.getTelefonoCliente()}</td>
 				<td>${cli.getEmailCliente()}</td>
 				<td>${cli.getRubroCliente()}</td>
 				<td>${cli.getDireccionCliente()}</td>
-				<td><a href="${pageContext.request.contextPath}/EliminarCliente?id=${cli.getIdCliente()}">Eliminar</a></td>
-				<td><a href="${pageContext.request.contextPath}/ModificarCliente?id=${cli.getIdCliente()}">Modificar</a></td>
 			</tr>
 		</c:forEach>
 	</table>
 	<br>
-	<a href="AgregarCliente">Agregar Cliente</a>
 </body>
 </html>
