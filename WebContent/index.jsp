@@ -9,25 +9,30 @@
 <body>
 	<h1>Menu Principal</h1>
 	<ol>
+		<hr>
+		<h4>ÁREA ADMINISTRADOR</h4>
 		<li>CU 1
 			<a href="${pageContext.request.contextPath}/ListarClientes">Administrar Clientes</a>
 		</li>
 		<li>CU 2
 			<a href="${pageContext.request.contextPath}/ListarEmpleados">Administrar Empleados</a>
 		</li>
-		
-		<li>CU4 
-		<a href="${pageContext.request.contextPath}/PlanificarVisita">Planificar Visita</a>
-		</li>
+		<hr>
+		<h4>ÁREA EMPLEADO</h4>	
 		<li>CU3 Crear capacitacion</li>
+		<li>CU4 
+			<a href="${pageContext.request.contextPath}/PlanificarVisita">Planificar Visita</a>
+		</li>
+		<li>CU5 
+			<a href="${pageContext.request.contextPath}/RevisarCliente">Revisar Cliente</a>
+		</li>
+		<li>CU6 
+			<a href="${pageContext.request.contextPath}/ReportarAccidente">Reportar accidente</a>
+		</li>		
 		<li>CU7 Crear caso de asesoria</li>
 		<li>CU13 Ingresar Asesoria</li>
 		<li>CU19 Generar reporte cliente</li>
 		<li>CU20 Generar reporte global</li>
-		<li>Opciones por terminar</li>
-		<li></li>
-		<li></li>
-		
 	</ol>
 </body>
 </html>
