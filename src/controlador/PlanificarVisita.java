@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.DaoCliente;
+import dao.DaoVisita;
 import modelo.Clientes;
+import modelo.VisitasGeneradas;
 
 /**
  * Servlet implementation class PlanificarVisita
@@ -36,10 +38,16 @@ public class PlanificarVisita extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		DaoCliente cliDao = new DaoCliente();
 		List<Clientes> listacli = new ArrayList<Clientes>();
-		
 		listacli = cliDao.listar(); 
 		
+		
+		DaoVisita daovisita = new DaoVisita();
+		List<VisitasGeneradas> listavisitagenerada = new ArrayList<VisitasGeneradas>();
+		listavisitagenerada = daovisita.listaGenerada();
+		
+		
 		request.setAttribute("listaclientes", listacli);
+		request.setAttribute("listagenerada", listavisitagenerada);
 		request.getRequestDispatcher("planificarvisita.jsp").forward(request, response);
 	}
 
