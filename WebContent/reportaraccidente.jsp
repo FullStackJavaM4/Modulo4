@@ -12,7 +12,10 @@
 	<hr>
 	<h2>Reportar Accidente</h2>	
 	<c:if test="${ccmensaje != null}">
-		<h3><c:out value="${ccmensaje}"></c:out></h3>
+		<h4>
+			<c:out value="${ccmensaje}"></c:out> 
+			<c:if test="${idtrue == false }"><a href="${urlrc}">Revisar Cliente</a></c:if>
+		</h4>
 	</c:if>
 	
 	<c:if test="${idtrue == null}">
@@ -53,7 +56,7 @@
 				</tr>
 				<tr>
 					<td>
-						<input type="text" value="${datocli.getIdCliente()}" readonly>
+						<input type="hidden" name="idcliente" value="${datocli.getIdCliente()}" readonly>
 						<input type="submit" value="ingresar accidente">
 					</td>
 				</tr>

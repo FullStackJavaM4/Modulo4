@@ -48,10 +48,12 @@ public class ReportarAccidente extends HttpServlet {
 		
 		boolean existecliente = false;
 		String mensaje = "";
+		String urlRevisarCliente = "";
 		
 		if(datocliente.getIdCliente() == 0) {
 			System.out.println("es cero cliente no existe");
-			mensaje = "Cliente no existe, confirme en opcion Revisar Cliente";
+			mensaje = "Cliente no existe, confirme ID Cliente en ";
+			urlRevisarCliente = "RevisarCliente";
 		} else {
 			System.out.println("cliente existe" + datocliente.getNombreCliente());
 			existecliente = true;
@@ -62,6 +64,7 @@ public class ReportarAccidente extends HttpServlet {
 		
 		request.setAttribute("idtrue", existecliente);
 		request.setAttribute("ccmensaje", mensaje);
+		request.setAttribute("urlrc", urlRevisarCliente);
 		request.setAttribute("datocli", datocliente);
 		
 		request.getRequestDispatcher("reportaraccidente.jsp").forward(request, response);
