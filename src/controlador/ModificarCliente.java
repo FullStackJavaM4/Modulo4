@@ -37,8 +37,11 @@ public class ModificarCliente extends HttpServlet {
 		
 		String texto = "Favor modifique los datos y presione Modificar";
 		
+		String telefono = Integer.toString(cli.getTelefonoCliente());
+		
 		request.setAttribute("txt", texto);
 		request.setAttribute("regcli", cli);
+		request.setAttribute("phone", telefono);
 		request.getRequestDispatcher("modificarcliente.jsp").forward(request, response);
 	}
 

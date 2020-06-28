@@ -22,7 +22,21 @@ public class Visitas {
 		this.idClienteVisita = idClienteVisita;
 		this.idEmpleadoVisita = idEmpleadoVisita;
 	}
+	
+	public Visitas(String direccionVisita, String ciudadVisita, String fechaVisita, String resumenVisita,
+			String observacionVisita, int idClienteVisita, int idEmpleadoVisita) {
+		this.direccionVisita = direccionVisita;
+		this.ciudadVisita = ciudadVisita;
+		this.fechaVisita = fechaVisita;
+		this.resumenVisita = resumenVisita;
+		this.observacionVisita = observacionVisita;
+		this.idClienteVisita = idClienteVisita;
+		this.idEmpleadoVisita = idEmpleadoVisita;
+	}
 
+	public Visitas() {
+		
+	}
 
 	public int getIdVisita() {
 		return idVisita;
