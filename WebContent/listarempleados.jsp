@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Listado Empleados</h1>	
+	<h1>Administrar Empleados (Agregar/Modificar/Eliminar)</h1>	
 	<c:if test="${txt != null}">
 	<h3><c:out value="${txt}"></c:out></h3>
 </c:if>

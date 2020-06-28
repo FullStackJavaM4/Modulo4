@@ -18,6 +18,18 @@ public class Accidentes {
 		this.clienteIdAcciedente = clienteIdAcciedente;
 	}
 
+	public Accidentes(String fechaAccidente, String horaAccidente, String sucesoAccidente,
+			String lugarAccidente, int clienteIdAcciedente) {
+		this.fechaAccidente = fechaAccidente;
+		this.horaAccidente = horaAccidente;
+		this.sucesoAccidente = sucesoAccidente;
+		this.lugarAccidente = lugarAccidente;
+		this.clienteIdAcciedente = clienteIdAcciedente;
+	}
+	
+	public Accidentes() {
+		
+	}
 	public int getIdAccidente() {
 		return idAccidente;
 	}
