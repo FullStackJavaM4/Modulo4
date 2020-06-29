@@ -10,8 +10,8 @@
 <body>
 	<a href="index.jsp">Menu Principal</a>
 	<hr>
-	<c:if test="${ccmensaje != null}">
-	<h3><c:out value="${ccmensaje}"></c:out></h3>
+	<c:if test="${msg != null}">
+	<h3><c:out value="${msg}"></c:out></h3>
 </c:if>
 	<br>
 	<h2>Listado de visitas generadas</h2>
@@ -32,8 +32,7 @@
 				<td>${lgv.getFechaVisita()}</td>
 				<td>${lgv.getIdClienteVisita()}</td>
 				<td>${lgv.getIdEmpleadoVisita()}</td>
-				<td><a href="${pageContext.request.contextPath}/GeneraCapacitacion?id=${lgv.getIdVisita()}">Generar Capacitación</a></td>
-				<td><a href="${pageContext.request.contextPath}/EliminarCapacitacion?id=${lgv.getIdVisita()}">Eliminar Capacitaciónr</a></td>
+				<td><a href="${pageContext.request.contextPath}/GenerarCapacitacion?id=${lgv.getIdVisita()}">Generar Capacitación</a></td>
 			</tr>
 		</c:forEach>
 	</table>

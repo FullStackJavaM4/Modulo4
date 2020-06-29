@@ -7,6 +7,15 @@ public class Capacitaciones {
 	private int numAsistCapacitacion;
 	private int idVisitaCapacitacion;
 	
+	
+	public Capacitaciones(String fechaCapacitacion, String horaCapacitacion,
+			int numAsistCapacitacion, int idVisitaCapacitacion) {
+		this.fechaCapacitacion = fechaCapacitacion;
+		this.horaCapacitacion = horaCapacitacion;
+		this.numAsistCapacitacion = numAsistCapacitacion;
+		this.idVisitaCapacitacion = idVisitaCapacitacion;
+	}
+	
 	public Capacitaciones(int idCapacitacion, String fechaCapacitacion, String horaCapacitacion,
 			int numAsistCapacitacion, int idVisitaCapacitacion) {
 		this.idCapacitacion = idCapacitacion;
@@ -15,6 +24,9 @@ public class Capacitaciones {
 		this.numAsistCapacitacion = numAsistCapacitacion;
 		this.idVisitaCapacitacion = idVisitaCapacitacion;
 	}
+	
+	
+	
 
 	public int getIdCapacitacion() {
 		return idCapacitacion;

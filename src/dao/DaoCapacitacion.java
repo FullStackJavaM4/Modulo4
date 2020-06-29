@@ -20,9 +20,10 @@ public class DaoCapacitacion implements IdaoCapacitacion {
 		Statement stm = null;
 		Connection con = null;
 				
-		String sql = "INSERT INTO Capacitaciones VALUES (null,'" + getFechaCapacitacion() + "','" + getHoraCapacitacion()  
-		+ "','" + getNumAsistCapacitacion() + "','" + "','"+ getIdVisitaCapacitacion + "')";
+		String sql = "INSERT INTO Capacitaciones VALUES (null,'" + capacitacion.getFechaCapacitacion() + "','" + capacitacion.getHoraCapacitacion()  
+		+ "','" + capacitacion.getNumAsistCapacitacion() + "','" + "','"+ capacitacion.getIdVisitaCapacitacion() + "')";
 		System.out.println("Valor sql: " + sql);
+		
 		
 		try {
 			con = ConexionSingleton.getConnection();
@@ -39,25 +40,8 @@ public class DaoCapacitacion implements IdaoCapacitacion {
 			e.printStackTrace();
 		}
 		
-		
-		
-		
-		return false;
+		return agregar;
 	}
-
-	@Override
-	public boolean eliminar(Capacitaciones capacitacion) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public List<Capacitaciones> listar() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	
 	
 
 }

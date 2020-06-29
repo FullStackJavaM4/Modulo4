@@ -9,29 +9,51 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
 	<a href="index.jsp">Menu Principal</a>
 	<hr>
 	<c:if test="${ccmensaje != null}">
-	<h3><c:out value="${ccmensaje}"></c:out></h3>
-</c:if>
+		<h3><c:out value="${ccmensaje}"></c:out></h3>
+	</c:if>
+
 	<br>
-	<h2>Listado de visitas generadas</h2>
-	<table border="1">
-		<tr>
-			<th>Fecha Capacitacion</th>
-			<th>Hora Capacitacion </th>
-			<th>Numero asistencia capacitacion</th>
-			<th>Identificador Cliente</th>
-			<th>Id visita capacitacion </th>
-		</tr>
-		<c:forEach items="${nn}" var="lgv">
+	<h2>Creacion de Capacitacion para cliente</h2>
+	<form method="post" action="GenerarCapacitacion">
+		<table border="1">
 			<tr>
-				<td>${lgv.getFechaCapacitacion()}</td>
+				<td>Fecha Capacitacion</td>
+				<td> <input type="text" name="fecha"><br> </td>
+			</tr>
+			<tr>
+				<td>Hora Capacitacion </td>
+				<td><input type="text" name="hora"><br></td>
+			</tr>
+			<tr>
+				<td>Numero asistente capacitacion</td>
+				<td><input type="number" name="numasistente"><br></td>
+			</tr>
+			<tr>
+				<td>Numero visita</td>
+				<td><input type="number" name="idvisita" value="${idvisita}" readonly><br></td>
+			</tr>
+			<tr>
+			<td>
+				<input type="submit" value="Enviar Capacitacion">  
+			</td>
+			</tr>
+		</table>
+		
+		
+		
+	</form>
+		
+		
+	
+			
+			
 				
 			<!-- <td><a href="${pageContext.request.contextPath}/GeneraCapacitacion?id=${lgv.getIdVisita()}">Genera la Capacitación</a></td>   -->
 				
-		</c:forEach>
+	
 	</table>
 	
 	

@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.DaoCapacitacion;
+import modelo.Capacitaciones;
+
 /**
  * Servlet implementation class GenerarCapacitacion
  */
@@ -27,11 +30,11 @@ public class GenerarCapacitacion extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		System.out.println("estamos en servlet capacitacion get");
+		System.out.println("estamos en servlet capacitacion gettttttt");
 		
-		request.setAttribute("idvisita",  request.getParameter("idVisitas"));
+		request.setAttribute("idvisita",  request.getParameter("id"));
 		request.getRequestDispatcher("creacapacitacion.jsp").forward(request, response);
 		
 		
@@ -42,15 +45,41 @@ public class GenerarCapacitacion extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
 		
-		System.out.println("estamos en servlet capacitacion Post");
-		
-		request.setAttribute("idvisita",  request.getParameter("idVisitas"));
-		request.getRequestDispatcher("creacapacitacion.jsp").forward(request, response);
+		System.out.println("estamos en servlet capacitacion Post-Daniel");
+		// si lo hizo bien hecho.
 		
 		
+		boolean agregar = false;
+		String mensaje = "";
 		
+		Capacitaciones capacitacion = new Capacitaciones(
+				request.getParameter("fecha"),
+				request.getParameter("hora"),
+				Integer.parseInt(request.getParameter("numasistente")),
+				Integer.parseInt(request.getParameter("idvisita"))
+		);
+		
+		
+		DaoCapacitacion daocapacitacion = new DaoCapacitacion();
+		
+		agregar = daocapacitacion.agregar(capacitacion);
+				
+		if(agregar) {
+			mensaje = "Capacitación agregada exitosamente";
+		} else {
+			mensaje = "No fue posible realizar la solicutud";
+		}
+		
+		request.setAttribute("msg", mensaje);
+		System.out.println("Estamos en Post enviado el formulario a sql y esperando respuestra");
+		//request.getRequestDispatcher("agregarcapacitacion.jsp").forward(request, response);
+		
+		
+		
+		
+	
 		
 		
 		
