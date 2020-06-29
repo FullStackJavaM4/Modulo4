@@ -31,8 +31,15 @@
 		<li>CU6 
 			<a href="${pageContext.request.contextPath}/ReportarAccidente">Reportar accidente</a>
 		</li>		
-		<li>CU7 Crear caso de asesoria</li>
-		<li>CU13 Ingresar Asesoria</li>
+		<li>CU7 
+			<a href="${pageContext.request.contextPath}/CrearCasoAsesoria">Crear caso de asesoria</a>
+		</li>
+		<li>CU08 
+			<a href="${pageContext.request.contextPath}/GestionarMejora">Ingresar Actividad de mejora</a>
+		</li>
+		<li>CU09 
+			<a href="${pageContext.request.contextPath}/RevisarMejora">Revisar Actividad de mejora</a>
+		</li>
 		<li>CU19 Generar reporte cliente</li>
 		<li>CU20 Generar reporte global</li>
 	</ol>

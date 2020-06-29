@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<a href="index.jsp">Menu Principal</a>
+	<hr>
 	<h1>Administrar Empleados (Agregar/Modificar/Eliminar)</h1>	
 	<c:if test="${txt != null}">
 	<h3><c:out value="${txt}"></c:out></h3>
@@ -27,7 +29,6 @@
 		</c:forEach>
 	</table>
 	<br>
-	<a href="index.jsp">Menu Principal</a>
 	<a href="${pageContext.request.contextPath}/AgregarEmpleado">Agregar Empleado</a>
 </body>
 </html>

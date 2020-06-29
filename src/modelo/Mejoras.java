@@ -18,6 +18,19 @@ public class Mejoras {
 		this.idClienteMejora = idClienteMejora;
 	}
 
+	public Mejoras(String fechaMejora, String motivoMejora, String actividadesMejora, String estadoMejora,
+			int idClienteMejora) {
+		this.fechaMejora = fechaMejora;
+		this.motivoMejora = motivoMejora;
+		this.actividadesMejora = actividadesMejora;
+		this.estadoMejora = estadoMejora;
+		this.idClienteMejora = idClienteMejora;
+	}
+
+	public Mejoras() {
+		
+	}
+	
 	public int getIdMejora() {
 		return idMejora;
 	}
