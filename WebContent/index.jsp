@@ -17,9 +17,11 @@
 		<li>CU 2
 			<a href="${pageContext.request.contextPath}/ListarEmpleados">Administrar Empleados</a>
 		</li>
-		<hr>
+		<hr></hr>
 		<h4>ÁREA EMPLEADO</h4>	
-		<li>CU3 Crear capacitacion</li>
+		<li>CU3
+			<a href="${pageContext.request.contextPath}/AgregarCapacitacion">Crear capacitación</a>
+		</li>
 		<li>CU4 
 			<a href="${pageContext.request.contextPath}/PlanificarVisita">Planificar Visita</a>
 		</li>
